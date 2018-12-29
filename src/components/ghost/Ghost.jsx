@@ -5,32 +5,34 @@ import getUniqueId from '../../utils/getUniqueId';
 import Face from '../common/face/Face';
 import Wrapper from '../common/wrapper/Wrapper';
 
+import Svg, { G, Path } from 'react-native-svg';
+
 const Ghost = ({ size, color, mood, className }) => (
   <Wrapper className={className}>
-    <svg
+    <Svg
       width={size * 0.77}
       height={size}
       viewBox="0 0 130 168"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
     >
-      <g id="kawaii-ghost">
-        <g id="kawaii-ghost__body">
-          <path d={paths.shape} id="kawaii-ghost__shape" fill={color} />
-          <path
+      <G id="kawaii-ghost">
+        <G id="kawaii-ghost__body">
+          <Path d={paths.shape} id="kawaii-ghost__shape" fill={color} />
+          <Path
             d={paths.shadow}
             id="kawaii-ghost__shadow"
             fillOpacity=".1"
             fill="#000000"
           />
-        </g>
+        </G>
         <Face
           mood={mood}
           transform="translate(34 57)"
           uniqueId={getUniqueId()}
         />
-      </g>
-    </svg>
+      </G>
+    </Svg>
   </Wrapper>
 );
 

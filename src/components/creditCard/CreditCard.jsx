@@ -5,37 +5,39 @@ import Face from '../common/face/Face';
 import getUniqueId from '../../utils/getUniqueId';
 import Wrapper from '../common/wrapper/Wrapper';
 
+import Svg, { G, Path } from 'react-native-svg';
+
 const CreditCard = ({ size, color, mood, className }) => (
   <Wrapper className={className}>
-    <svg
+    <Svg
       width={size * 1.38}
       height={size}
       viewBox="0 0 198 143"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
     >
-      <g id="kawaii-creditCard">
-        <g id="kawaii-creditCard__body" fillRule="nonzero">
-          <path d={paths.shape} id="kawaii-creditCard__shape" fill={color} />
-          <path
+      <G id="kawaii-creditCard">
+        <G id="kawaii-creditCard__body" fillRule="nonzero">
+          <Path d={paths.shape} id="kawaii-creditCard__shape" fill={color} />
+          <Path
             d={paths.shadow}
             id="kawaii-creditCard__shadow"
             fill="#000"
             opacity=".1"
           />
-          <path
+          <Path
             id="kawaii-creditCard__stripe"
             fill="#000"
             d="M0 17h198v27H0z"
           />
-        </g>
+        </G>
         <Face
           mood={mood}
           transform="translate(66 73)"
           uniqueId={getUniqueId()}
         />
-      </g>
-    </svg>
+      </G>
+    </Svg>
   </Wrapper>
 );
 

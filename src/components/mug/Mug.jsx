@@ -5,32 +5,34 @@ import Face from '../common/face/Face';
 import getUniqueId from '../../utils/getUniqueId';
 import Wrapper from '../common/wrapper/Wrapper';
 
+import Svg, { G, Path } from 'react-native-svg';
+
 const Mug = ({ size, color, mood, className }) => (
   <Wrapper className={className}>
-    <svg
+    <Svg
       width={size * 1.5}
       height={size}
       viewBox="0 0 172 115"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
     >
-      <g id="kawaii-mug">
-        <g id="kawaii-mug__body" fillRule="nonzero">
-          <path d={paths.shape} id="kawaii-mug__shape" fill={color} />
-          <path
+      <G id="kawaii-mug">
+        <G id="kawaii-mug__body" fillRule="nonzero">
+          <Path d={paths.shape} id="kawaii-mug__shape" fill={color} />
+          <Path
             d={paths.shadow}
             id="kawaii-mug__shadow"
             fill="#000"
             opacity=".1"
           />
-        </g>
+        </G>
         <Face
           mood={mood}
           transform="translate(71 42)"
           uniqueId={getUniqueId()}
         />
-      </g>
-    </svg>
+      </G>
+    </Svg>
   </Wrapper>
 );
 

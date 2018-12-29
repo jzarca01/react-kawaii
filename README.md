@@ -1,42 +1,28 @@
-# React Kawaii
+# React-Native Kawaii
 
 <div align="center" markdown="1">
-  <img src="https://raw.githubusercontent.com/miukimiu/react-kawaii/master/docs/images/react-kawaii-logo%402x.png" width="450">
+  <img src="https://raw.githubusercontent.com/jzarca01/react-native-kawaii/master/docs/images/react-kawaii-logo%402x.png" width="450">
 </div>
 
 React Kawaii is a library of cute SVG illustrations (react components). Ideal if you want to give some cuteness and personality to your react application.
 
-[![Version](https://img.shields.io/npm/v/react-kawaii.svg?style=flat-square)](https://www.npmjs.com/package/react-kawaii)
+[![Version](https://img.shields.io/npm/v/react-native-kawaii.svg?style=flat-square)](https://www.npmjs.com/package/react-native-kawaii)
 
 ## Example
 
-# ![React Kawaii Example](https://github.com/miukimiu/react-kawaii/blob/master/docs/images/react-kawaii-example.gif?raw=true)
+# ![React-Native Kawaii Example](https://github.com/jzarca01/react-native-kawaii/blob/master/docs/images/react-kawaii-example.gif?raw=true)
 
 ## Install
 
-`npm install --save react-kawaii`
+`npm install --save react-native-kawaii`
 
 ### How to use
 
 ```javascript
-import { Planet } from 'react-kawaii';
+import { Planet } from 'react-native-kawaii';
 
 const Example = () => <Planet size={200} mood="blissful" color="#FDA7DC" />;
 ```
-
-## Development
-
-So you want to help developing some cute UI components?
-
-If you want to develop a component
-
-- `npm i`
-
-- `npm run styleguide`
-
-If you want to build
-
-- `npm run styleguide:build`
 
 ## Documentation
 
@@ -70,3 +56,4 @@ Available components:
 - [Italox](https://github.com/Italox)
 - [Vinnl](https://github.com/Vinnl)
 - [eliasparis](https://github.com/eliasparis)
+- [jzarca01](https://github.com/jzarca01)

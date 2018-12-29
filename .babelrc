@@ -1,7 +1,4 @@
 {
-  "presets": [
-    ["@babel/env", {"modules": false}],
-    "@babel/react"
-  ],
+  "presets": ["react-native"],
   "plugins": ["@babel/plugin-proposal-class-properties"]
 }

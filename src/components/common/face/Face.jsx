@@ -2,26 +2,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import paths from './paths';
 
+import { Circle, Ellipse, G, Path, Use, Defs, Mask } from 'react-native-svg';
+
 const Face = ({ mood, uniqueId, ...rest }) => (
-  <g id="kawaii-face" {...rest}>
-    <defs>
-      <path d={paths.defs} id="kawaii-face__path-1" />
-    </defs>
-    <g id="kawaii-face__mouth" transform="translate(18.000000, 16.000000)">
+  <G id="kawaii-face" {...rest}>
+    <Defs>
+      <Path d={paths.defs} id="kawaii-face__path-1" />
+    </Defs>
+    <G id="kawaii-face__mouth" transform="translate(18.000000, 16.000000)">
       {(mood === 'blissful' || mood === 'lovestruck' || mood === 'excited') && (
-        <g
+        <G
           id="kawaii-face__mouth__joy"
           transform="translate(0.000000, 1.000000)"
         >
-          <mask id={`kawaii-face__mask-2-${uniqueId}`} fill="white">
-            <use xlinkHref="#kawaii-face__path-1" />
-          </mask>
-          <use
+          <Mask id={`kawaii-face__mask-2-${uniqueId}`} fill="white">
+            <Use xlinkHref="#kawaii-face__path-1" />
+          </Mask>
+          <Use
             id="Combined-Shape"
             fill="#000000"
             xlinkHref="#kawaii-face__path-1"
           />
-          <path
+          <Path
             d={paths.tongue}
             id="kawaii-face__tongue"
             fill="#E74144"
@@ -29,13 +31,13 @@ const Face = ({ mood, uniqueId, ...rest }) => (
             transform="translate(15.000000, 11.431885) scale(1, -1)
             translate(-15.000000, -11.431885)"
           />
-        </g>
+        </G>
       )}
       {mood === 'happy' && (
-        <path d={paths.happy} id="kawaii-face__mouth__happy" fill="#000000" />
+        <Path d={paths.happy} id="kawaii-face__mouth__happy" fill="#000000" />
       )}
       {mood === 'shocked' && (
-        <ellipse
+        <Ellipse
           id="kawaii-face__mouth__shocked"
           cx="15"
           cy="14"
@@ -45,72 +47,83 @@ const Face = ({ mood, uniqueId, ...rest }) => (
         />
       )}
       {(mood === 'sad' || mood === 'ko') && (
-        <path
+        <Path
           d={paths.sad}
           id="kawaii-face__mouth__sad"
           fill="#000000"
           transform="translate(14.999999, 5.500000) scale(1, -1) translate(-14.999999, -5.500000)"
         />
       )}
-    </g>
-    <g
+    </G>
+    <G
       id="kawaii-face__blush"
       transform="translate(0.000000, 15.000000)"
       fill="#000000"
       opacity="0.2"
     >
-      <circle id="Oval" cx="3" cy="3" r="3" />
-      <circle id="Oval" cx="63" cy="3" r="3" />
-    </g>
-    <g
+      <Circle id="Oval" cx="3" cy="3" r="3" />
+      <Circle id="Oval" cx="63" cy="3" r="3" />
+    </G>
+    <G
       id="kawaii-face__eyes"
       transform="translate(2.000000, 0.000000)"
       fill="#000000"
     >
       {mood === 'blissful' && (
-        <g
+        <G
           id="kawaii-face__eyes__arc"
           transform="translate(1.000000, 0.000000)"
         >
-          <path d={paths.bliss1} id="Fill-5" />
-          <path d={paths.bliss2} id="Fill-5" />
-        </g>
+          <Path d={paths.bliss1} id="Fill-5" />
+          <Path d={paths.bliss2} id="Fill-5" />
+        </G>
       )}
-      {(mood === 'happy' || mood === 'sad' || mood === 'shocked' || mood === 'excited') && (
-        <g
+      {(mood === 'happy' ||
+        mood === 'sad' ||
+        mood === 'shocked' ||
+        mood === 'excited') && (
+        <G
           id="kawaii-face__eyes__circle"
           transform="translate(1.000000, 2.000000)"
         >
-          <circle id="Oval-3" cx="4.5" cy="4.5" r="4.5" />
-          <circle id="Oval-3" cx="56.5" cy="4.5" r="4.5" />
-        </g>
+          <Circle id="Oval-3" cx="4.5" cy="4.5" r="4.5" />
+          <Circle id="Oval-3" cx="56.5" cy="4.5" r="4.5" />
+        </G>
       )}
       {mood === 'lovestruck' && (
-        <g
+        <G
           id="kawaii-face__eyes__heart"
           transform="translate(0.000000, 2.000000)"
           fillRule="nonzero"
         >
-          <path d={paths.lovestruck1} id="Shape" />
-          <path d={paths.lovestruck2} id="Shape" />
-        </g>
+          <Path d={paths.lovestruck1} id="Shape" />
+          <Path d={paths.lovestruck2} id="Shape" />
+        </G>
       )}
       {mood === 'ko' && (
-        <g
+        <G
           id="kawaii-face__eyes__ko"
           transform="translate(1.500000, 1.000000)"
           fillRule="nonzero"
         >
-          <path d={paths.ko1} id="Cross" />
-          <path d={paths.ko2} id="Cross" />
-        </g>
+          <Path d={paths.ko1} id="Cross" />
+          <Path d={paths.ko2} id="Cross" />
+        </G>
       )}
-    </g>
-  </g>
+    </G>
+  </G>
 );
 
 Face.propTypes = {
-  mood: PropTypes.oneOf(['sad', 'shocked', 'happy', 'blissful', 'lovestruck', 'excited', 'ko'])
+  mood: PropTypes.oneOf([
+    'sad',
+    'shocked',
+    'happy',
+    'blissful',
+    'lovestruck',
+    'excited',
+    'ko'
+  ])
 };
 
 Face.defaultProps = {

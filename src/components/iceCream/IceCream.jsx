@@ -5,9 +5,11 @@ import Face from '../common/face/Face';
 import getUniqueId from '../../utils/getUniqueId';
 import Wrapper from '../common/wrapper/Wrapper';
 
+import Svg, { G, Path } from 'react-native-svg';
+
 const IceCream = ({ size, color, mood, className }) => (
   <Wrapper className={className}>
-    <svg
+    <Svg
       width={size * 0.5}
       height={size}
       viewBox="0 0 110 220"
@@ -15,24 +17,24 @@ const IceCream = ({ size, color, mood, className }) => (
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
     >
-      <g id="kawaii-iceCream">
-        <g fillRule="nonzero">
-          <path d={paths.stick} id="kawaii-iceCream__stick" fill="#FCCB7E" />
-          <path d={paths.shape} id="kawaii-iceCream__shape" fill={color} />
-          <path
+      <G id="kawaii-iceCream">
+        <G fillRule="nonzero">
+          <Path d={paths.stick} id="kawaii-iceCream__stick" fill="#FCCB7E" />
+          <Path d={paths.shape} id="kawaii-iceCream__shape" fill={color} />
+          <Path
             d={paths.shadow}
             id="kawaii-iceCream__shadow"
             fill="#000000"
             opacity=".1"
           />
-        </g>
+        </G>
         <Face
           mood={mood}
           transform="translate(22.000000, 81.000000)"
           uniqueId={getUniqueId()}
         />
-      </g>
-    </svg>
+      </G>
+    </Svg>
   </Wrapper>
 );
 

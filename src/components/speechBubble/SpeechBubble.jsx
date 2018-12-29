@@ -5,9 +5,11 @@ import Face from '../common/face/Face';
 import getUniqueId from '../../utils/getUniqueId';
 import Wrapper from '../common/wrapper/Wrapper';
 
+import Svg, { G, Path, Use, Defs, Mask } from 'react-native-svg';
+
 const SpeechBubble = ({ size, color, mood, className }) => (
   <Wrapper className={className}>
-    <svg
+    <Svg
       width={size}
       height={size}
       version="1.1"
@@ -15,37 +17,37 @@ const SpeechBubble = ({ size, color, mood, className }) => (
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
     >
-      <defs>
-        <path d={paths.shape} id="kawaii-speechBubble__shape--path" />
-        <path d={paths.shadow} id="kawaii-speechBubble__shadow--path" />
-      </defs>
-      <g id="Kawaii-speechBubble">
-        <g id="Kawaii-speechBubble__body">
-          <mask fill="#fff">
-            <use xlinkHref="#kawaii-speechBubble__shape--path" />
-          </mask>
-          <use
+      <Defs>
+        <Path d={paths.shape} id="kawaii-speechBubble__shape--path" />
+        <Path d={paths.shadow} id="kawaii-speechBubble__shadow--path" />
+      </Defs>
+      <G id="Kawaii-speechBubble">
+        <G id="Kawaii-speechBubble__body">
+          <Mask fill="#fff">
+            <Use xlinkHref="#kawaii-speechBubble__shape--path" />
+          </Mask>
+          <Use
             id="Kawaii-speechBubble__shape"
             fill={color}
             xlinkHref="#kawaii-speechBubble__shape--path"
           />
-          <mask fill="#fff">
-            <use xlinkHref="#kawaii-speechBubble__shadow--path" />
-          </mask>
-          <use
+          <Mask fill="#fff">
+            <Use xlinkHref="#kawaii-speechBubble__shadow--path" />
+          </Mask>
+          <Use
             id="Kawaii-speechBubble__shadow"
             fill="#000"
             opacity=".1"
             xlinkHref="#kawaii-speechBubble__shadow--path"
           />
-        </g>
+        </G>
         <Face
           mood={mood}
           transform="translate(34 57)"
           uniqueId={getUniqueId()}
         />
-      </g>
-    </svg>
+      </G>
+    </Svg>
   </Wrapper>
 );
 

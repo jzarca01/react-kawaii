@@ -5,9 +5,11 @@ import Face from '../common/face/Face';
 import getUniqueId from '../../utils/getUniqueId';
 import Wrapper from '../common/wrapper/Wrapper';
 
+import Svg, { G, Path, Use, Defs, Mask } from 'react-native-svg';
+
 const Planet = ({ size, color, mood, className }) => (
   <Wrapper className={className}>
-    <svg
+    <Svg
       width={size}
       height={size}
       version="1.1"
@@ -15,37 +17,37 @@ const Planet = ({ size, color, mood, className }) => (
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
     >
-      <defs>
-        <path d={paths.shape} id="kawaii-planet__shape--path" />
-        <path d={paths.shadow} id="kawaii-planet__shadow--path" />
-      </defs>
-      <g id="kawaii-planet">
-        <g id="kawaii-planet__body">
-          <mask id="mask-2" fill="#fff">
-            <use xlinkHref="#kawaii-planet__shape--path" />
-          </mask>
-          <use
+      <Defs>
+        <Path d={paths.shape} id="kawaii-planet__shape--path" />
+        <Path d={paths.shadow} id="kawaii-planet__shadow--path" />
+      </Defs>
+      <G id="kawaii-planet">
+        <G id="kawaii-planet__body">
+          <Mask id="mask-2" fill="#fff">
+            <Use xlinkHref="#kawaii-planet__shape--path" />
+          </Mask>
+          <Use
             id="kawaii-planet__shape"
             fill={color}
             xlinkHref="#kawaii-planet__shape--path"
           />
-          <mask id="mask-4" fill="#fff">
-            <use xlinkHref="#kawaii-planet__shadow--path" />
-          </mask>
-          <use
+          <Mask id="mask-4" fill="#fff">
+            <Use xlinkHref="#kawaii-planet__shadow--path" />
+          </Mask>
+          <Use
             id="kawaii-planet__shadow"
             fill="#000000"
             opacity=".1"
             xlinkHref="#kawaii-planet__shadow--path"
           />
-        </g>
+        </G>
         <Face
           mood={mood}
           transform="translate(34 57)"
           uniqueId={getUniqueId()}
         />
-      </g>
-    </svg>
+      </G>
+    </Svg>
   </Wrapper>
 );
 

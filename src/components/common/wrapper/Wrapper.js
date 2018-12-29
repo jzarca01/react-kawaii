@@ -1,10 +1,8 @@
 import React from 'react';
+import { View } from 'react-native';
 
-function Wrapper(props) {
-  return React.createElement('div', {
-    ...props,
-    style: { position: 'relative', ...(props.style || {}) }
-  });
-}
+const Wrapper = props => (
+  <View {...props} style={{ position: 'relative', ...(props.style || {}) }} />
+);
 
 export default Wrapper;
