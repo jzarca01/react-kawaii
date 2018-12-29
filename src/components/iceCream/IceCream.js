@@ -1,4 +1,5 @@
 import React from 'react';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import paths from './paths';
 import Face from '../common/face/Face';
@@ -7,44 +8,41 @@ import Wrapper from '../common/wrapper/Wrapper';
 
 import Svg, { G, Path } from 'react-native-svg';
 
-const CreditCard = ({ size, color, mood, className }) => (
-  <Wrapper className={className}>
+const IceCream = ({ size, color, mood, className }) => (
+  <View className={className}>
     <Svg
-      width={size * 1.38}
+      width={size * 0.5}
       height={size}
-      viewBox="0 0 198 143"
+      viewBox="0 0 110 220"
+      version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
     >
-      <G id="kawaii-creditCard">
-        <G id="kawaii-creditCard__body" fillRule="nonzero">
-          <Path d={paths.shape} id="kawaii-creditCard__shape" fill={color} />
+      <G id="kawaii-iceCream">
+        <G fillRule="nonzero">
+          <Path d={paths.stick} id="kawaii-iceCream__stick" fill="#FCCB7E" />
+          <Path d={paths.shape} id="kawaii-iceCream__shape" fill={color} />
           <Path
             d={paths.shadow}
-            id="kawaii-creditCard__shadow"
-            fill="#000"
+            id="kawaii-iceCream__shadow"
+            fill="#000000"
             opacity=".1"
-          />
-          <Path
-            id="kawaii-creditCard__stripe"
-            fill="#000"
-            d="M0 17h198v27H0z"
           />
         </G>
         <Face
           mood={mood}
-          transform="translate(66 73)"
+          transform="translate(22.000000, 81.000000)"
           uniqueId={getUniqueId()}
         />
       </G>
     </Svg>
-  </Wrapper>
+  </View>
 );
 
-CreditCard.propTypes = {
+IceCream.propTypes = {
   /**
    * Size of the width
-   * */
+   */
   size: PropTypes.number,
   mood: PropTypes.oneOf([
     'sad',
@@ -61,10 +59,10 @@ CreditCard.propTypes = {
   color: PropTypes.string
 };
 
-CreditCard.defaultProps = {
-  size: 200,
+IceCream.defaultProps = {
+  size: 300,
   mood: 'blissful',
-  color: '#83D1FB'
+  color: '#FDA7DC'
 };
 
-export default CreditCard;
+export default IceCream;

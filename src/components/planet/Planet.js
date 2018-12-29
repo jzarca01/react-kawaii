@@ -1,4 +1,5 @@
 import React from 'react';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import paths from './paths';
 import Face from '../common/face/Face';
@@ -7,8 +8,8 @@ import Wrapper from '../common/wrapper/Wrapper';
 
 import Svg, { G, Path, Use, Defs, Mask } from 'react-native-svg';
 
-const SpeechBubble = ({ size, color, mood, className }) => (
-  <Wrapper className={className}>
+const Planet = ({ size, color, mood, className }) => (
+  <View className={className}>
     <Svg
       width={size}
       height={size}
@@ -18,27 +19,29 @@ const SpeechBubble = ({ size, color, mood, className }) => (
       xmlnsXlink="http://www.w3.org/1999/xlink"
     >
       <Defs>
-        <Path d={paths.shape} id="kawaii-speechBubble__shape--path" />
-        <Path d={paths.shadow} id="kawaii-speechBubble__shadow--path" />
+        <Path d={paths.shape} id="kawaii-planet__shape--path" />
+        <Path d={paths.shadow} id="kawaii-planet__shadow--path" />
       </Defs>
-      <G id="Kawaii-speechBubble">
-        <G id="Kawaii-speechBubble__body">
-          <Mask fill="#fff">
-            <Use xlinkHref="#kawaii-speechBubble__shape--path" />
+      <G id="kawaii-planet">
+        <G id="kawaii-planet__body">
+          <Mask id="mask-2" fill="#fff">
+            <Use xlinkHref="#kawaii-planet__shape--path" href="#kawaii-planet__shape--path" />
           </Mask>
           <Use
-            id="Kawaii-speechBubble__shape"
+            id="kawaii-planet__shape"
             fill={color}
-            xlinkHref="#kawaii-speechBubble__shape--path"
+            xlinkHref="#kawaii-planet__shape--path"
+            href="#kawaii-planet__shape--path"
           />
-          <Mask fill="#fff">
-            <Use xlinkHref="#kawaii-speechBubble__shadow--path" />
+          <Mask id="mask-4" fill="#fff">
+            <Use xlinkHref="#kawaii-planet__shadow--path" href="#kawaii-planet__shadow--path" />
           </Mask>
           <Use
-            id="Kawaii-speechBubble__shadow"
-            fill="#000"
+            id="kawaii-planet__shadow"
+            fill="#000000"
             opacity=".1"
-            xlinkHref="#kawaii-speechBubble__shadow--path"
+            xlinkHref="#kawaii-planet__shadow--path"
+            href="#kawaii-planet__shadow--path"
           />
         </G>
         <Face
@@ -48,10 +51,10 @@ const SpeechBubble = ({ size, color, mood, className }) => (
         />
       </G>
     </Svg>
-  </Wrapper>
+  </View>
 );
 
-SpeechBubble.propTypes = {
+Planet.propTypes = {
   /**
    * Size of the width
    * */
@@ -65,17 +68,16 @@ SpeechBubble.propTypes = {
     'excited',
     'ko'
   ]),
-
   /**
    * Hex color
    */
   color: PropTypes.string
 };
 
-SpeechBubble.defaultProps = {
-  size: 150,
+Planet.defaultProps = {
+  size: 190,
   mood: 'blissful',
-  color: '#83D1FB'
+  color: '#FCCB7E'
 };
 
-export default SpeechBubble;
+export default Planet;

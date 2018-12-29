@@ -1,42 +1,48 @@
 import React from 'react';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import paths from './paths';
-import getUniqueId from '../../utils/getUniqueId';
 import Face from '../common/face/Face';
+import getUniqueId from '../../utils/getUniqueId';
 import Wrapper from '../common/wrapper/Wrapper';
 
 import Svg, { G, Path } from 'react-native-svg';
 
-const Ghost = ({ size, color, mood, className }) => (
-  <Wrapper className={className}>
+const CreditCard = ({ size, color, mood, className }) => (
+  <View className={className}>
     <Svg
-      width={size * 0.77}
+      width={size * 1.38}
       height={size}
-      viewBox="0 0 130 168"
+      viewBox="0 0 198 143"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
     >
-      <G id="kawaii-ghost">
-        <G id="kawaii-ghost__body">
-          <Path d={paths.shape} id="kawaii-ghost__shape" fill={color} />
+      <G id="kawaii-creditCard">
+        <G id="kawaii-creditCard__body" fillRule="nonzero">
+          <Path d={paths.shape} id="kawaii-creditCard__shape" fill={color} />
           <Path
             d={paths.shadow}
-            id="kawaii-ghost__shadow"
-            fillOpacity=".1"
-            fill="#000000"
+            id="kawaii-creditCard__shadow"
+            fill="#000"
+            opacity=".1"
+          />
+          <Path
+            id="kawaii-creditCard__stripe"
+            fill="#000"
+            d="M0 17h198v27H0z"
           />
         </G>
         <Face
           mood={mood}
-          transform="translate(34 57)"
+          transform="translate(66 73)"
           uniqueId={getUniqueId()}
         />
       </G>
     </Svg>
-  </Wrapper>
+  </View>
 );
 
-Ghost.propTypes = {
+CreditCard.propTypes = {
   /**
    * Size of the width
    * */
@@ -56,10 +62,10 @@ Ghost.propTypes = {
   color: PropTypes.string
 };
 
-Ghost.defaultProps = {
-  size: 240,
+CreditCard.defaultProps = {
+  size: 200,
   mood: 'blissful',
-  color: '#E0E4E8'
+  color: '#83D1FB'
 };
 
-export default Ghost;
+export default CreditCard;

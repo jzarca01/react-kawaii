@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import paths from './paths';
+import paths from 'react-native-kawaii/src/components/common/face/paths';
 
 import { Circle, Ellipse, G, Path, Use, Defs, Mask } from 'react-native-svg';
 
@@ -16,12 +16,13 @@ const Face = ({ mood, uniqueId, ...rest }) => (
           transform="translate(0.000000, 1.000000)"
         >
           <Mask id={`kawaii-face__mask-2-${uniqueId}`} fill="white">
-            <Use xlinkHref="#kawaii-face__path-1" />
+            <Use xlinkHref="#kawaii-face__path-1" href="#kawaii-face__path-1" />
           </Mask>
           <Use
             id="Combined-Shape"
             fill="#000000"
             xlinkHref="#kawaii-face__path-1"
+            href="#kawaii-face__path-1"
           />
           <Path
             d={paths.tongue}
