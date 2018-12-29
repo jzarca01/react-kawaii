@@ -28,7 +28,7 @@ const Face = ({ mood, uniqueId, ...rest }) => (
             d={paths.tongue}
             id="kawaii-face__tongue"
             fill="#E74144"
-            mask={`#kawaii-face__mask-2-${uniqueId}`}
+            mask={`url(#kawaii-face__mask-2-${uniqueId})`}
             transform="translate(15.000000, 11.431885) scale(1, -1)
             translate(-15.000000, -11.431885)"
           />
