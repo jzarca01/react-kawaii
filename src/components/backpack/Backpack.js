@@ -1,14 +1,14 @@
 import React from 'react';
-import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import paths from './paths';
 import getUniqueId from '../../utils/getUniqueId';
 import Face from '../common/face/Face';
+import Wrapper from '../common/wrapper/Wrapper';
 
 import Svg, { G, Path, Use, Defs, Mask } from 'react-native-svg';
 
 const Backpack = ({ size, color, mood, className }) => (
-  <View className={className}>
+  <Wrapper className={className}>
     <Svg
       xmlnsXlink="http://www.w3.org/1999/xlink"
       width={size * 0.63}
@@ -118,7 +118,10 @@ const Backpack = ({ size, color, mood, className }) => (
             href="#pocket__shape-path"
           />
           <Mask id="mask-6" fill="#fff">
-            <Use xlinkHref="#pocket__shape__shadow-path" href="#pocket__shape__shadow-path" />
+            <Use
+              xlinkHref="#pocket__shape__shadow-path"
+              href="#pocket__shape__shadow-path"
+            />
           </Mask>
           <Use
             id="pocket__shape__shadow"
@@ -170,7 +173,7 @@ const Backpack = ({ size, color, mood, className }) => (
         </G>
       </G>
     </Svg>
-  </View>
+  </Wrapper>
 );
 
 Backpack.propTypes = {

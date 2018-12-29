@@ -1,5 +1,4 @@
 import React from 'react';
-import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import paths from './paths';
 import Face from '../common/face/Face';
@@ -9,7 +8,7 @@ import Wrapper from '../common/wrapper/Wrapper';
 import Svg, { G, Path } from 'react-native-svg';
 
 const Mug = ({ size, color, mood, className }) => (
-  <View className={className}>
+  <Wrapper className={className}>
     <Svg
       width={size * 1.5}
       height={size}
@@ -34,7 +33,7 @@ const Mug = ({ size, color, mood, className }) => (
         />
       </G>
     </Svg>
-  </View>
+  </Wrapper>
 );
 
 Mug.propTypes = {

@@ -1,5 +1,4 @@
 import React from 'react';
-import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import paths from './paths';
 import Face from '../common/face/Face';
@@ -9,7 +8,7 @@ import Wrapper from '../common/wrapper/Wrapper';
 import Svg, { G, Path, Use, Defs, Mask } from 'react-native-svg';
 
 const SpeechBubble = ({ size, color, mood, className }) => (
-  <View className={className}>
+  <Wrapper className={className}>
     <Svg
       width={size}
       height={size}
@@ -25,7 +24,10 @@ const SpeechBubble = ({ size, color, mood, className }) => (
       <G id="Kawaii-speechBubble">
         <G id="Kawaii-speechBubble__body">
           <Mask fill="#fff">
-            <Use xlinkHref="#kawaii-speechBubble__shape--path" href="#kawaii-speechBubble__shape--path" />
+            <Use
+              xlinkHref="#kawaii-speechBubble__shape--path"
+              href="#kawaii-speechBubble__shape--path"
+            />
           </Mask>
           <Use
             id="Kawaii-speechBubble__shape"
@@ -34,7 +36,10 @@ const SpeechBubble = ({ size, color, mood, className }) => (
             href="#kawaii-speechBubble__shape--path"
           />
           <Mask fill="#fff">
-            <Use xlinkHref="#kawaii-speechBubble__shadow--path" href="#kawaii-speechBubble__shadow--path" />
+            <Use
+              xlinkHref="#kawaii-speechBubble__shadow--path"
+              href="#kawaii-speechBubble__shadow--path"
+            />
           </Mask>
           <Use
             id="Kawaii-speechBubble__shadow"
@@ -51,7 +56,7 @@ const SpeechBubble = ({ size, color, mood, className }) => (
         />
       </G>
     </Svg>
-  </View>
+  </Wrapper>
 );
 
 SpeechBubble.propTypes = {

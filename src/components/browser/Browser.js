@@ -1,15 +1,14 @@
 import React from 'react';
-import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import paths from './paths';
 import Face from '../common/face/Face';
 import getUniqueId from '../../utils/getUniqueId';
 import Wrapper from '../common/wrapper/Wrapper';
 
-import Svg, { G, Path, Rect } from 'react-native-svg';
+import Svg, { G, Path, Rect, Ellipse } from 'react-native-svg';
 
 const Browser = ({ size, color, mood, className }) => (
-  <View className={className}>
+  <Wrapper className={className}>
     <Svg
       width={size * 1.44}
       height={size}
@@ -48,7 +47,7 @@ const Browser = ({ size, color, mood, className }) => (
         />
       </G>
     </Svg>
-  </View>
+  </Wrapper>
 );
 
 Browser.propTypes = {

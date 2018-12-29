@@ -1,5 +1,4 @@
 import React from 'react';
-import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import paths from './paths';
 import Face from '../common/face/Face';
@@ -9,7 +8,7 @@ import Wrapper from '../common/wrapper/Wrapper';
 import Svg, { G, Path, Use, Defs, Mask } from 'react-native-svg';
 
 const Planet = ({ size, color, mood, className }) => (
-  <View className={className}>
+  <Wrapper className={className}>
     <Svg
       width={size}
       height={size}
@@ -25,7 +24,10 @@ const Planet = ({ size, color, mood, className }) => (
       <G id="kawaii-planet">
         <G id="kawaii-planet__body">
           <Mask id="mask-2" fill="#fff">
-            <Use xlinkHref="#kawaii-planet__shape--path" href="#kawaii-planet__shape--path" />
+            <Use
+              xlinkHref="#kawaii-planet__shape--path"
+              href="#kawaii-planet__shape--path"
+            />
           </Mask>
           <Use
             id="kawaii-planet__shape"
@@ -34,7 +36,10 @@ const Planet = ({ size, color, mood, className }) => (
             href="#kawaii-planet__shape--path"
           />
           <Mask id="mask-4" fill="#fff">
-            <Use xlinkHref="#kawaii-planet__shadow--path" href="#kawaii-planet__shadow--path" />
+            <Use
+              xlinkHref="#kawaii-planet__shadow--path"
+              href="#kawaii-planet__shadow--path"
+            />
           </Mask>
           <Use
             id="kawaii-planet__shadow"
@@ -51,7 +56,7 @@ const Planet = ({ size, color, mood, className }) => (
         />
       </G>
     </Svg>
-  </View>
+  </Wrapper>
 );
 
 Planet.propTypes = {
